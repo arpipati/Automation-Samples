@@ -12,7 +12,7 @@ def main():
     ## --- File object to open HTML files in "write" mode
     t = open('/Users/arpitpatil/python-tests/dashboard_bkp/demo-int.html','w')
 
-    ## --- File object to open comma separated environment text files in "write" mode
+    ## --- File object to open comma separated environment text files in "read" mode
     f = open('/Users/arpitpatil/python-tests/dashboard_bkp/demo-int.txt','r')
 
     ## --- Add the project logo at the begining of the HTML file
