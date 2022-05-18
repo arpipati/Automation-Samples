@@ -56,7 +56,16 @@ This is how the Dashboard was created and got refreshed every 5 minutes, reporti
 
 ## Python Script Code:
 
+Each environment had its own Python script to parse the comma separated text file. I have added a sample Pyhon script file called `demo-int.py` for reference.
+
 The Python script I created was all part of trial-and-error and therefore, does not follow any best practices for coding and naming conventions. While I was working on this project, I wrote the python scripts in a very rough and rudimentary manner. 
 
 However, when the Dashboard became functional and was released to the Project at large, it quickly gained popularity and adoption. It became a source of truth for monitoring the health of core components and I did not get a chance to refactor the code and align it with best practices. 
 
+---
+
+## Demo Files:
+
+I have uploaded the sample `demo-int.txt` and `demo-int.html` files here for reference. 
+
+The `master-dash.html` file serves as the landing page for this dashboard. 
