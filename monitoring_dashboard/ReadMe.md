@@ -68,4 +68,4 @@ However, when the Dashboard became functional and was released to the Project at
 
 I have uploaded the sample `demo-int.txt` and `demo-int.html` files here for reference. 
 
-The `master-dash.html` file serves as the landing page for this dashboard. 
+The `master-dash.html` file serves as the landing page for this dashboard. This file is opened in `append` mode in the Python script. This allows for new `div` blocks to be appended to the the HTML file for each environment when the Jenkins jobs run to generate HTML files for each environment.
