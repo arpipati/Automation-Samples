@@ -1,4 +1,4 @@
-import urllib
+ 
 def main():
     a = []  ## --- List to capture the parsed output from the comma separated text files
 
@@ -23,7 +23,7 @@ def main():
         for word in line.split(','):
             a.append(word.strip('\n'))
 
-    ## --- Identify the EC2 hostname
+    ## --- Identify the EC2 hostname. Flag counter will count the number of EC2 hostnames in the text file.
     for hosts in a:
         if 'cwds.io' in hosts:
             env = hosts.split('.')[1].split('.')[0]
@@ -34,11 +34,12 @@ def main():
 
     t.write('<center><font face="timesnewroman">Environment URL: <a href="https://web.demo-int.cwds.io">https://web.demo-int.cwds.io</a></font></center>')
 
+    ## --- Create Table Rows for the Docker Conatiner Name, Docker Container Status and Docker Image Version
     t.write('<tr><td><strong><center>Application</strong></td><td><strong><center>Status</strong></td><td><strong><center>Version</center></strong></td></tr>')
     
     ## --- Main logic to check for "exited" containers and add appropriate HTML code blocks to the HTML file
     for item in range(len(a)):
-        ## --- If construct to identify EC2 hostname and add Table Row in the HTML file.
+        ## --- "If" construct to identify EC2 hostname and add Table Row for hostname in the HTML file.
         if 'cwds.io' in a[item]:
             host = a[item]
             t.write('<tr><td colspan="3"><center><font color="blue">' + host + '</font></center></td></tr>')
@@ -57,7 +58,7 @@ def main():
                 t.write('<td>' + version + '</td></tr>')
             
             if 'api' in a[item] and 'cwds.io' not in a[item] and 'cwds/' not in a[item]:
-                #pos = a.index(item)
+                
                 pos = item
                 t.write('<tr><td>' + a[item] + '</td>')
                 status = a[pos+1]
@@ -70,7 +71,7 @@ def main():
                 t.write('<td>' + version + '</td></tr>')
 
             if 'cals' in a[item] and 'cwds.io' not in a[item] and 'cwds/' not in a[item] and 'api' not in a[item]:
-                #pos = a.index(item)
+                
                 pos = item
                 t.write('<tr><td>' + a[item] + '</td>')
                 status = a[pos+1]
@@ -83,7 +84,7 @@ def main():
                 t.write('<td>' + version + '</td></tr>')
             
             if 'logspout' in a[item] and 'logspout-logstash' not in a[item]:
-                #pos = a.index(item)
+                
                 pos = item
                 t.write('<tr><td>' + a[item] + '</td>')
                 status = a[pos+1]
