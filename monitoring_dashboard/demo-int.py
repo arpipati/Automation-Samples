@@ -102,7 +102,7 @@ def main():
     if flag == 5:
         ## --- If any of the counters are incremented, we have a Docker Container in "Exited" status. 
         if app_ctr >= 1 or api_ctr >=1 or cals_ctr >= 1 or url_ctr >= 1:
-            ## --- "m" is the File object for the master HTML file, the landing page for the dashboard.
+            ## --- "m" is the File object for the master HTML file, the landing page for the dashboard. It opens the "master-dash.html" file in "append" mode.
             m = open('/Users/arpitpatil/python-tests/dashboard_bkp/master-dash.html','a')
             m.write('<div class="floating-box"><center>Preint Environment</center><h4><center><font color="red">1 or more issues reported<center></font></center></h4><center><a href="https://s3-us-west-1.amazonaws.com/env-status.cwds.io/demo-int.html">Click here to check environment stats</a></div>')
             m.close()
