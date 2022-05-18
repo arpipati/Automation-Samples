@@ -17,7 +17,6 @@ def main():
 
     ## --- Add the project logo at the begining of the HTML file
     t.write('<htm><center><img src="https://cwscms.osi.ca.gov/portals/0/Images/CWDS-Logo-Horizontal.png?ver=2016-03-30-141326-323"</img></center><hr></hr><body><center><table border=1></center>')
-    #t.write('<tr><td><strong><center>Application</strong></td><td><strong><center>Status</strong></td><td><strong><center>Version</center></strong></td></tr>')
     
     ## --- Parse the comma separated text file and append the list "a" with the file contents
     for line in f:
