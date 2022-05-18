@@ -21,7 +21,7 @@ def cf_new_stack(stack_name,template):
         ## --- SDK API call to create change set for New Stack. If Stack already exists, ChangeSetType CREATE will fail and throw exception.
         response = client.create_change_set(
         StackName=stack_name,
-        TemplateURL='https://cwds-cloudformation.s3-us-west-1.amazonaws.com/Environments/'+stack_name+'/'+template,
+        TemplateURL='https://<bucket_name>.s3-us-west-1.amazonaws.com/Environments/'+stack_name+'/'+template,
         Parameters=[
         {
             'ParameterKey': 'DBPassword',
@@ -55,7 +55,7 @@ def cf_new_stack(stack_name,template):
         ## --- SDK API call to create change set for New Stack
         response = client.create_change_set(
         StackName=stack_name,
-        TemplateURL='https://cwds-cloudformation.s3-us-west-1.amazonaws.com/Environments/'+stack_name+'/'+template,            
+        TemplateURL='https://<bucket_name>.s3-us-west-1.amazonaws.com/Environments/'+stack_name+'/'+template,            
         Capabilities=
         [
             'CAPABILITY_IAM',
@@ -76,7 +76,7 @@ def cf_old_stack(stack_name, template):
     try:
         response = client.create_change_set(
         StackName=stack_name,
-        TemplateURL='https://cwds-cloudformation.s3-us-west-1.amazonaws.com/Environments/'+stack_name+'/'+template,
+        TemplateURL='https://<bucket_name>.s3-us-west-1.amazonaws.com/Environments/'+stack_name+'/'+template,
         Parameters=[
         {
             'ParameterKey': 'DBPassword',
@@ -104,7 +104,7 @@ def cf_old_stack(stack_name, template):
                 
         response = client.create_change_set(
         StackName=stack_name,
-        TemplateURL='https://cwds-cloudformation.s3-us-west-1.amazonaws.com/Environments/'+stack_name+'/'+template,
+        TemplateURL='https://<bucket_name>.s3-us-west-1.amazonaws.com/Environments/'+stack_name+'/'+template,
         Capabilities=
         [
             'CAPABILITY_IAM',
@@ -123,7 +123,7 @@ def cf_email_notify(set_type, stack_name):
         
         ## --- Get temporary pre-signed URL to the RDS password file.
         url = s3.generate_presigned_url('get_object',
-        Params={'Bucket': 'cwdskeys','Key': 'rds-password/'+stack_name+'-RDS_Password.txt'},
+        Params={'Bucket': '<bucket_name>','Key': 'rds-password/'+stack_name+'-RDS_Password.txt'},
         ExpiresIn=600)
 
         ## --- API call to send Email notification for change set created for New Stack
@@ -148,7 +148,7 @@ def cf_email_notify(set_type, stack_name):
                 'Data': 'Lambda CF Notification',
             },
         },
-        Source='CWDSDevOpsEngineering@osi.ca.gov')
+        Source='<email_list>')
         print("RDS Password sent to CWDS DevOps Email list")
 
     elif set_type == 'NEW_nonDB':
@@ -156,7 +156,7 @@ def cf_email_notify(set_type, stack_name):
         notify = email.send_email(
         Destination=
         {
-            'ToAddresses': ["CWDSDevOpsEngineering@osi.ca.gov"]
+            'ToAddresses': ["<email_list>"]
         },
         Message=
         {
@@ -174,14 +174,14 @@ def cf_email_notify(set_type, stack_name):
                 'Data': 'Lambda CF Notification',
             },
         },
-        Source='CWDSDevOpsEngineering@osi.ca.gov')    
+        Source='<email_list>')    
 
     elif set_type == 'OLD':
         ## --- API call to send Email notification for change set created for Existing Stack        
         notify = email.send_email(
         Destination=
         {
-            'ToAddresses': ["CWDSDevOpsEngineering@osi.ca.gov"]
+            'ToAddresses': ["<email_list>"]
         },
         Message=
         {
@@ -199,14 +199,14 @@ def cf_email_notify(set_type, stack_name):
                 'Data': 'Lambda CF Notification',
             },
         },
-        Source='CWDSDevOpsEngineering@osi.ca.gov')
+        Source='<email_list>')
 
     else:
         ## --- API call to send Email notification for errors in Template
         notify = email.send_email(
         Destination=
         {
-            'ToAddresses': ["CWDSDevOpsEngineering@osi.ca.gov"]
+            'ToAddresses': ["<email_list>"]
         },
         Message=
         {
@@ -224,7 +224,7 @@ def cf_email_notify(set_type, stack_name):
                 'Data': 'Lambda CF Notification',
             },
         },
-        Source='CWDSDevOpsEngineering@osi.ca.gov')
+        Source='<email_list>')
 
     return notify
 
