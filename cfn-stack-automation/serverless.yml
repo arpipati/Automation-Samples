@@ -44,12 +44,12 @@ provider:
         - "s3:GetBucketNotification"
         - "s3:PutBucketNotification"
         - "s3:GetObject"        
-      Resource: "arn:aws:s3:::cwds-cloudformation/Environments/*"
+      Resource: "arn:aws:s3:::<bucket_name>/Environments/*"
     - Effect: "Allow"
       Action:
         - "s3:PutObject" 
         - "s3:GetObject"               
-      Resource: "arn:aws:s3:::cwdskeys/*"  
+      Resource: "arn:aws:s3:::<bucket_name>/*"  
     - Effect: "Allow"
       Action:
         - "ses:SendEmail"
@@ -127,7 +127,7 @@ functions:
     handler: handler.lambda_cf
     events:
       - existings3: 
-          bucket: cwds-cloudformation
+          bucket: <bucket_name>
           events: 
             - s3:ObjectCreated:*
           rules:
