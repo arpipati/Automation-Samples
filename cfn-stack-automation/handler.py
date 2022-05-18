@@ -36,7 +36,7 @@ def cf_new_stack(stack_name,template):
         print("New Stack Will be Created")
 
         ## --- Push RDS password to S3 bucket.
-        s3.put_object(Bucket='cwdskeys', Key='rds-password/'+stack_name+'-RDS_Password.txt', Body=DBPassword)
+        s3.put_object(Bucket='<bucket_name>', Key='rds-password/'+stack_name+'-RDS_Password.txt', Body=DBPassword)
         print("Password generated and sent to s3")
 
         ## --- call email function with set_type = NEW.
@@ -130,7 +130,7 @@ def cf_email_notify(set_type, stack_name):
         notify = email.send_email(
         Destination=
         {
-            'ToAddresses': ["CWDSDevOpsEngineering@osi.ca.gov"]
+            'ToAddresses': ["<email_list>"]
         },
         Message=
         {
@@ -149,7 +149,7 @@ def cf_email_notify(set_type, stack_name):
             },
         },
         Source='<email_list>')
-        print("RDS Password sent to CWDS DevOps Email list")
+        print("RDS Password sent to DevOps Email list")
 
     elif set_type == 'NEW_nonDB':
         ## --- API call to send Email notification for change set created for New Stack without DBPassword Parameter
@@ -228,7 +228,7 @@ def cf_email_notify(set_type, stack_name):
 
     return notify
 
-## --- Actual Lambda function to invoke on template uploads to cwds-cloudformation s3 bucket.
+## --- Actual Lambda function to invoke on template uploads to s3 bucket.
 def lambda_cf(event, context):
 
     print("S3 Generated Event:")
