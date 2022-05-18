@@ -1,0 +1,40 @@
+elasticsearch.demo-int.cwds.io
+logspout,Up 2 weeks,bekt/logspout-logstash
+api-c.demo-int.cwds.io
+intake-api,Up 2 weeks,cwds/intake_api_prototype:af4eb45
+dora-api,Up 2 weeks,cwds/dora:0.4.2
+ferb-nginx,Up 2 weeks,nginx:1.12.1
+ferb-api,Up 2 weeks,cwds/api:0.33.1519
+logspout,Up 2 hours,bekt/logspout-logstash
+api-a.demo-int.cwds.io
+intake-api,Up 2 weeks,cwds/intake_api_prototype:af4eb45
+dora-api,Up 2 weeks,cwds/dora:0.4.2
+ferb-nginx,Up 2 weeks,nginx:1.12.1
+ferb-api,Up 2 weeks,cwds/api:0.33.1519
+logspout,Up 2 hours,bekt/logspout-logstash
+musing_clarke,Exited (1) 3 months ago,ec241
+relaxed_elion,Exited (1) 3 months ago,ec241
+trusting_bardeen,Exited (1) 3 months ago,ec241
+naughty_meninsky,Exited (1) 3 months ago,ec241
+suspicious_cray,Exited (1) 3 months ago,ec241
+ecstatic_allen,Exited (0) 3 months ago,ec241
+peaceful_stallman,Created,ec24
+pensive_pasteur,Exited (1) 3 months ago,ec24
+fervent_darwin,Exited (1) 3 months ago,ec24
+app-c.demo-int.cwds.io
+nginx-intake-app,Up 2 weeks,nginx:stable
+intake-app,Up 2 weeks,cwds/intake:9688ffd
+logspout,Up 2 hours,bekt/logspout-logstash
+dashboard_app_1,Up 3 weeks,cwds/dashboard:2.5-SNAPSHOT
+app-a.demo-int.cwds.io
+nginx-intake-app,Up 2 weeks,nginx:stable
+intake-app,Up 2 weeks,cwds/intake:9688ffd
+logspout,Up 2 hours,bekt/logspout-logstash
+dashboard_app_1,Up 3 weeks,cwds/dashboard:2.5-SNAPSHOT
+perry-a.demo-int.cwds.io
+perry_appserver_1,Up 2 weeks,cwds/perry:0.3.6
+logspout,Up 2 weeks,bekt/logspout-logstash
+rundeck.demo-int.cwds.io
+rundeckd (pid  22411) is running...
+elasticsearch.demo-int.cwds.io
+elasticsearch (pid 23118) is running...

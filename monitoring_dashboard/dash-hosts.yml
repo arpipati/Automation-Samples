@@ -1,0 +1,85 @@
+[preint]
+app-a.preint.cwds.io
+app-c.preint.cwds.io
+api-a.preint.cwds.io
+api-c.preint.cwds.io
+perry-a.preint.cwds.io
+#perry-c.preint.cwds.io
+
+[integration]
+app-a.integration.cwds.io
+app-c.integration.cwds.io
+api-a.integration.cwds.io
+api-c.integration.cwds.io
+perry-a.integration.cwds.io
+#perry-c.integration.cwds.io
+
+[integration02]
+app-a.integration02.cwds.io
+app-c.integration02.cwds.io
+api-a.integration02.cwds.io
+api-c.integration02.cwds.io
+perry-a.integration02.cwds.io
+#perry-c.integration02.cwds.io
+
+[demo-int]
+app-a.demo-int.cwds.io
+app-c.demo-int.cwds.io
+api-a.demo-int.cwds.io
+api-c.demo-int.cwds.io
+perry-a.demo-int.cwds.io
+#perry-c.demo-int.cwds.io
+#db2.demo-int.cwds.io
+#postgres.demo-int.cwds.io
+
+[perf]
+app-a.perf.cwds.io
+app-c.perf.cwds.io
+api-a.perf.cwds.io
+api-c.perf.cwds.io
+perry-a.perf.cwds.io
+#perry-c.perf.cwds.io
+#db2.perf.cwds.io
+#postgres.perf.cwds.io
+
+[preview]
+app-a.preview.cwds.io
+app-c.preview.cwds.io
+api-a.preview.cwds.io
+api-c.preview.cwds.io
+perry-a.preview.cwds.io
+#perry-c.preview.cwds.io
+
+[prod]
+intake-a.prod.cwds.io
+intake-c.prod.cwds.io
+api-a.prod.cwds.io
+api-c.prod.cwds.io
+perry-a.prod.cwds.io
+#perry-c.prod.cwds.io
+
+[cocina]
+#app-a.cocina.cwds.io
+#app-c.cocina.cwds.io
+#api-a.cocina.cwds.io
+#api-c.cocina.cwds.io
+#perry-a.cocina.cwds.io
+#perry-c.cocina.cwds.io
+
+[slaves]
+jenkins-slave.preint.cwds.io
+jenkins-slave.integration.cwds.io
+jenkins-slave.integration02.cwds.io
+jenkins-slave.demo-int.cwds.io
+jenkins-slave.perf.cwds.io
+jenkins-slave.preview.cwds.io
+jenkins.prod.cwds.io
+
+[master]
+jenkins.mgmt.cwds.io preint_slave=jenkins-slave.preint.cwds.io
+jenkins.mgmt.cwds.io int_slave=jenkins-slave.integration.cwds.io
+jenkins.mgmt.cwds.io int02_slave=jenkins-slave.integration02.cwds.io
+jenkins.mgmt.cwds.io demo-int_slave=jenkins-slave.demo-int.cwds.io
+jenkins.mgmt.cwds.io perf_slave=jenkins-slave.perf.cwds.io
+jenkins.mgmt.cwds.io preview_slave=jenkins-slave.preview.cwds.io
+jenkins.mgmt.cwds.io prod_slave=jenkins.prod.cwds.io
