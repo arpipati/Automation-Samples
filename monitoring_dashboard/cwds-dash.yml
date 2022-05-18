@@ -3,149 +3,149 @@
 
 ####### --- Preint utility files --- #######
 
-- hosts: jenkins-slave.preint.cwds.io
+- hosts: jenkins-slave.preint.xxx.io
   become: yes
   tasks:
-  - name: create cwds-dash directory if it dosen't exist
+  - name: create xxx-dash directory if it dosen't exist
     file:
-      path: /tmp/cwds-dash
+      path: /tmp/xxx-dash
       state: directory
       mode: 0755
 
   - name: remove temp text file
     file: 
-      path: /tmp/cwds-dash/preint.txt
+      path: /tmp/xxx-dash/preint.txt
       state: absent
 
   - name: Create temp text file
     file:
-      path: /tmp/cwds-dash/preint.txt
+      path: /tmp/xxx-dash/preint.txt
       state: touch
 
 ####### --- Integration utility files --- #######
 
-- hosts: jenkins-slave.integration.cwds.io
+- hosts: jenkins-slave.integration.xxx.io
   become: yes
   tasks:
-  - name: create cwds-dash directory if it dosen't exist
+  - name: create xxx-dash directory if it dosen't exist
     file:
-      path: /tmp/cwds-dash
+      path: /tmp/xxx-dash
       state: directory
       mode: 0755
 
   - name: remove temp text file
     file:
-      path: /tmp/cwds-dash/int.txt
+      path: /tmp/xxx-dash/int.txt
       state: absent
 
   - name: Create temp text file
     file:
-      path: /tmp/cwds-dash/int.txt
+      path: /tmp/xxx-dash/int.txt
       state: touch
 
 ####### --- Integration02 utility files --- ########
 
-- hosts: jenkins-slave.integration02.cwds.io
+- hosts: jenkins-slave.integration02.xxx.io
   become: yes
   tasks:
-  - name: create cwds-dash directory if it dosen't exist
+  - name: create xxx-dash directory if it dosen't exist
     file:
-      path: /tmp/cwds-dash
+      path: /tmp/xxx-dash
       state: directory
       mode: 0755
 
   - name: remove temp text file
     file:
-      path: /tmp/cwds-dash/int02.txt
+      path: /tmp/xxx-dash/int02.txt
       state: absent
 
   - name: Create temp text file
     file:
-      path: /tmp/cwds-dash/int02.txt
+      path: /tmp/xxx-dash/int02.txt
       state: touch
 
 ####### --- Preview utility files --- #######
       
-- hosts: jenkins-slave.preview.cwds.io
+- hosts: jenkins-slave.preview.xxx.io
   become: yes
   tasks:
-  - name: create cwds-dash directory if it dosen't exist
+  - name: create xxx-dash directory if it dosen't exist
     file:
-      path: /tmp/cwds-dash
+      path: /tmp/xxx-dash
       state: directory
       mode: 0755
 
   - name: remove temp text file
     file:
-      path: /tmp/cwds-dash/preview.txt
+      path: /tmp/xxx-dash/preview.txt
       state: absent
 
   - name: Create temp text file
     file:
-      path: /tmp/cwds-dash/preview.txt
+      path: /tmp/xxx-dash/preview.txt
       state: touch
 
 ####### --- Prod utility files --- #########
 
-#- hosts: jenkins.prod.cwds.io
+#- hosts: jenkins.prod.xxx.io
 #  become: yes
 #  tasks:
-#  - name: create cwds-dash directory if it dosen't exist
+#  - name: create xxx-dash directory if it dosen't exist
 #    file:
-#      path: /tmp/cwds-dash
+#      path: /tmp/xxx-dash
 #      state: directory
 #      mode: 0755
 
 #  - name: remove temp text file
 #    file:
-#      path: /tmp/cwds-dash/prod.txt
+#      path: /tmp/xxx-dash/prod.txt
 #      state: absent
 
 #  - name: Create temp text file
 #    file:
-#      path: /tmp/cwds-dash/prod.txt
+#      path: /tmp/xxx-dash/prod.txt
 #      state: touch
 
 ####### --- Demo-Int utility files --- #######
 
-- hosts: jenkins-slave.demo-int.cwds.io
+- hosts: jenkins-slave.demo-int.xxx.io
   become: yes
   tasks:
-  - name: create cwds-dash directory if it dosen't exist
+  - name: create xxx-dash directory if it dosen't exist
     file:
-      path: /tmp/cwds-dash
+      path: /tmp/xxx-dash
       state: directory
       mode: 0755
 
   - name: remove temp text file
     file:
-      path: /tmp/cwds-dash/demo-int.txt
+      path: /tmp/xxx-dash/demo-int.txt
       state: absent
 
   - name: Create temp text file
     file:
-      path: /tmp/cwds-dash/demo-int.txt
+      path: /tmp/xxx-dash/demo-int.txt
       state: touch
 
 ####### --- Perf utility files --- #######
 
-- hosts: jenkins-slave.perf.cwds.io
+- hosts: jenkins-slave.perf.xxx.io
   become: yes
   tasks:
-  - name: create cwds-dash directory if it dosen't exist
+  - name: create xxx-dash directory if it dosen't exist
     file:
-      path: /tmp/cwds-dash
+      path: /tmp/xxx-dash
       state: directory
       mode: 0755
 
   - name: remove temp text file
     file:
-      path: /tmp/cwds-dash/perf.txt
+      path: /tmp/xxx-dash/perf.txt
       state: absent
 
   - name: Create temp text file
     file:
-      path: /tmp/cwds-dash/perf.txt
+      path: /tmp/xxx-dash/perf.txt
       state: touch
 
 
@@ -163,10 +163,10 @@
 
   - name: save result
     lineinfile:
-      dest: /tmp/cwds-dash/preint.txt
+      dest: /tmp/xxx-dash/preint.txt
       line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
       insertafter: BOF
-    delegate_to: jenkins-slave.preint.cwds.io
+    delegate_to: jenkins-slave.preint.xxx.io
   
 ####### ----------------------------- Tasks for generating INTEGRATION dashboard --------------------- 
 
@@ -182,10 +182,10 @@
 
   - name: save result
     lineinfile:
-      dest: /tmp/cwds-dash/int.txt
+      dest: /tmp/xxx-dash/int.txt
       line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
       insertafter: BOF
-    delegate_to: jenkins-slave.integration.cwds.io
+    delegate_to: jenkins-slave.integration.xxx.io
 
 ####### ----------------------------- Tasks for generating INTEGRATION02 dashboard --------------------- 
 
@@ -201,10 +201,10 @@
 
   - name: save result
     lineinfile:
-      dest: /tmp/cwds-dash/int02.txt
+      dest: /tmp/xxx-dash/int02.txt
       line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
       insertafter: BOF
-    delegate_to: jenkins-slave.integration02.cwds.io
+    delegate_to: jenkins-slave.integration02.xxx.io
 
 ####### ----------------------------- Tasks for generating Demo-Int dashboard --------------------
 
@@ -220,10 +220,10 @@
 
   - name: save result
     lineinfile:
-      dest: /tmp/cwds-dash/demo-int.txt
+      dest: /tmp/xxx-dash/demo-int.txt
       line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
       insertafter: BOF
-    delegate_to: jenkins-slave.demo-int.cwds.io
+    delegate_to: jenkins-slave.demo-int.xxx.io
 
 
 ####### ----------------------------- Tasks for generating PERF dashboard ------------------------
@@ -240,10 +240,10 @@
 
   - name: save result
     lineinfile:
-      dest: /tmp/cwds-dash/perf.txt
+      dest: /tmp/xxx-dash/perf.txt
       line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
       insertafter: BOF
-    delegate_to: jenkins-slave.perf.cwds.io
+    delegate_to: jenkins-slave.perf.xxx.io
 
 ####### ----------------------------- Tasks for generating PREVIEW dashboard --------------------- 
 
@@ -259,10 +259,10 @@
 
   - name: save result
     lineinfile:
-      dest: /tmp/cwds-dash/preview.txt
+      dest: /tmp/xxx-dash/preview.txt
       line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
       insertafter: BOF
-    delegate_to: jenkins-slave.preview.cwds.io
+    delegate_to: jenkins-slave.preview.xxx.io
 
 ####### ----------------------------- Tasks for generating PROD dashboard --------------------- 
 
@@ -278,10 +278,10 @@
 
 #  - name: save result
 #    lineinfile:
-#      dest: /tmp/cwds-dash/prod.txt
+#      dest: /tmp/xxx-dash/prod.txt
 #      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
 #      insertafter: BOF
-#    delegate_to: jenkins.prod.cwds.io
+#    delegate_to: jenkins.prod.xxx.io
 
 ####### ----------------------------- Tasks for generating COCINA dashboard --------------------- 
 
@@ -300,7 +300,7 @@
 #      dest: /tmp/cocina.txt
 #      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
 #      insertafter: BOF
-#    delegate_to: jenkins-slave.cocina.cwds.io
+#    delegate_to: jenkins-slave.cocina.xxx.io
 
 
 ##### ------------ Fetch all text files from slaves --------------- ######
@@ -311,60 +311,60 @@
   tasks:
   - name: fetch file from source server
     fetch:
-      src: /tmp/cwds-dash/preint.txt
+      src: /tmp/xxx-dash/preint.txt
       dest: /tmp
-    delegate_to: jenkins-slave.preint.cwds.io
+    delegate_to: jenkins-slave.preint.xxx.io
 
   - name: fetch file from source server
     fetch:
-      src: /tmp/cwds-dash/int.txt
+      src: /tmp/xxx-dash/int.txt
       dest: /tmp
-    delegate_to: jenkins-slave.integration.cwds.io
+    delegate_to: jenkins-slave.integration.xxx.io
 
   - name: fetch file from source server
     fetch:
-      src: /tmp/cwds-dash/int02.txt
+      src: /tmp/xxx-dash/int02.txt
       dest: /tmp
-    delegate_to: jenkins-slave.integration02.cwds.io
+    delegate_to: jenkins-slave.integration02.xxx.io
 
   - name: fetch file from source server
     fetch:
-      src: /tmp/cwds-dash/preview.txt
+      src: /tmp/xxx-dash/preview.txt
       dest: /tmp
-    delegate_to: jenkins-slave.preview.cwds.io
+    delegate_to: jenkins-slave.preview.xxx.io
 
 #  - name: fetch file from source server
 #    fetch:
-#      src: /tmp/cwds-dash/prod.txt
+#      src: /tmp/xxx-dash/prod.txt
 #      dest: /tmp
-#    delegate_to: jenkins.prod.cwds.io
+#    delegate_to: jenkins.prod.xxx.io
 
   - name: fetch file from source server
     fetch:
-      src: /tmp/cwds-dash/demo-int.txt
+      src: /tmp/xxx-dash/demo-int.txt
       dest: /tmp
-    delegate_to: jenkins-slave.demo-int.cwds.io
+    delegate_to: jenkins-slave.demo-int.xxx.io
 
   - name: fetch file from source server
     fetch:
-      src: /tmp/cwds-dash/perf.txt
+      src: /tmp/xxx-dash/perf.txt
       dest: /tmp
-    delegate_to: jenkins-slave.perf.cwds.io
+    delegate_to: jenkins-slave.perf.xxx.io
 
 ##### ------------ Manage all processing on Jenkins Master -------- ######
 
 - hosts: master
   become: yes
   tasks:
-  - name: create cwds-dash directory if it dosen't exist
+  - name: create xxx-dash directory if it dosen't exist
     file:
-      path: /tmp/cwds-dash
+      path: /tmp/xxx-dash
       state: directory
       mode: 0755
 
   - name: remove html files
     file:
-      path: /tmp/cwds-dash/{{ item.file }}
+      path: /tmp/xxx-dash/{{ item.file }}
       state: absent
     with_items:
     - { file: 'preint.html' }
@@ -380,7 +380,7 @@
 
   - name: create new html files
     file:
-      path: /tmp/cwds-dash/{{ item.file }}
+      path: /tmp/xxx-dash/{{ item.file }}
       state: touch
     with_items:
     - { file: 'preint.html' }
@@ -394,19 +394,19 @@
 
   - name: remove master html file
     file:
-      path: /tmp/cwds-dash/master-dash.html
+      path: /tmp/xxx-dash/master-dash.html
       state: absent
 
   - name: load master html template
     template:
       src: inventories/env-monitor/master-dash.html
-      dest: /tmp/cwds-dash/master-dash.html
+      dest: /tmp/xxx-dash/master-dash.html
 
 ##### ---------- Remove all existing text files -------------
 
   - name: remove temp text file
     file:
-      path: /tmp/cwds-dash/{{ item.file }}
+      path: /tmp/xxx-dash/{{ item.file }}
       state: absent
     with_items: 
     - { file: 'preint.txt' }
@@ -423,45 +423,45 @@
 
   - name: copy the paired files to the right servers
     copy:
-      src: /tmp/{{ preint_slave }}/tmp/cwds-dash/preint.txt
-      dest: /tmp/cwds-dash/
+      src: /tmp/{{ preint_slave }}/tmp/xxx-dash/preint.txt
+      dest: /tmp/xxx-dash/
 
   - name: copy the paired files to the right servers
     copy:
-      src: /tmp/{{ int_slave }}/tmp/cwds-dash/int.txt
-      dest: /tmp/cwds-dash/
+      src: /tmp/{{ int_slave }}/tmp/xxx-dash/int.txt
+      dest: /tmp/xxx-dash/
 
   - name: copy the paired files to the right servers
     copy:
-      src: /tmp/{{ int02_slave }}/tmp/cwds-dash/int02.txt
-      dest: /tmp/cwds-dash/
+      src: /tmp/{{ int02_slave }}/tmp/xxx-dash/int02.txt
+      dest: /tmp/xxx-dash/
 
   - name: copy the paired files to the right servers
     copy:
-      src: /tmp/{{ demo-int_slave }}/tmp/cwds-dash/demo-int.txt
-      dest: /tmp/cwds-dash/
+      src: /tmp/{{ demo-int_slave }}/tmp/xxx-dash/demo-int.txt
+      dest: /tmp/xxx-dash/
 
   - name: copy the paired files to the right servers
     copy:
-      src: /tmp/{{ perf_slave }}/tmp/cwds-dash/perf.txt
-      dest: /tmp/cwds-dash/
+      src: /tmp/{{ perf_slave }}/tmp/xxx-dash/perf.txt
+      dest: /tmp/xxx-dash/
 
   - name: copy the paired files to the right servers
     copy:
-      src: /tmp/{{ preview_slave }}/tmp/cwds-dash/preview.txt
-      dest: /tmp/cwds-dash/
+      src: /tmp/{{ preview_slave }}/tmp/xxx-dash/preview.txt
+      dest: /tmp/xxx-dash/
 
 #  - name: copy the paired files to the right servers
 #    copy:
-#      src: /tmp/{{ prod_slave }}/tmp/cwds-dash/prod.txt
-#      dest: /tmp/cwds-dash/
+#      src: /tmp/{{ prod_slave }}/tmp/xxx-dash/prod.txt
+#      dest: /tmp/xxx-dash/
 
 ##### ------------- Copy all python scripts to master --------
 
   - name: Copy over python script
     copy:
       src: inventories/env-monitor/{{ item.file }}
-      dest: /tmp/cwds-dash/{{ item.file }}
+      dest: /tmp/xxx-dash/{{ item.file }}
     with_items:
     - { file: 'preint.py' }
     - { file: 'int.py' }
@@ -476,48 +476,48 @@
 ##### --------- Parsing and Generating HTML ------------------
 
   - name: Run script to parse file and generate html dashboard for preint
-    command: python /tmp/cwds-dash/preint.py
+    command: python /tmp/xxx-dash/preint.py
 
   - name: Run script to parse file and generate html dashboard for integration
-    command: python /tmp/cwds-dash/int.py
+    command: python /tmp/xxx-dash/int.py
 
   - name: Run script to parse file and generate html dashboard for integration02
-    command: python /tmp/cwds-dash/int02.py
+    command: python /tmp/xxx-dash/int02.py
 
   - name: Run script to parse file and generate html dashboard for demo-int
-    command: python /tmp/cwds-dash/demo-int.py
+    command: python /tmp/xxx-dash/demo-int.py
 
   - name: Run script to parse file and generate html dashboard for perf
-    command: python /tmp/cwds-dash/perf.py
+    command: python /tmp/xxx-dash/perf.py
 
   - name: Run script to parse file and generate html dashboard for preview
-    command: python /tmp/cwds-dash/preview.py
+    command: python /tmp/xxx-dash/preview.py
 
 #  - name: Run script to parse file and generate html dashboard for prod
-#    command: python /tmp/cwds-dash/prod.py
+#    command: python /tmp/xxx-dash/prod.py
 
 ##### ----------- Pushing files to S3 -------------------------
 
   - name: Copy over Master HTML file to S3 bucket
-    command: sudo aws s3 cp /tmp/cwds-dash/master-dash.html s3://env-status.cwds.io/master-dash.html
+    command: sudo aws s3 cp /tmp/xxx-dash/master-dash.html s3://env-status.xxx.io/master-dash.html
 
   - name: Copy over Preint HTML files to S3 bucket
-    command: sudo aws s3 cp /tmp/cwds-dash/preint.html s3://env-status.cwds.io/preint.html
+    command: sudo aws s3 cp /tmp/xxx-dash/preint.html s3://env-status.xxx.io/preint.html
 
   - name: Copy over Integration HTML files to S3 bucket
-    command: sudo aws s3 cp /tmp/cwds-dash/int.html s3://env-status.cwds.io/int.html
+    command: sudo aws s3 cp /tmp/xxx-dash/int.html s3://env-status.xxx.io/int.html
 
   - name: Copy over Integration02 HTML files to S3 bucket
-    command: sudo aws s3 cp /tmp/cwds-dash/int02.html s3://env-status.cwds.io/int02.html
+    command: sudo aws s3 cp /tmp/xxx-dash/int02.html s3://env-status.xxx.io/int02.html
 
   - name: Copy over Demo-Int HTML files to S3 bucket
-    command: sudo aws s3 cp /tmp/cwds-dash/demo-int.html s3://env-status.cwds.io/demo-int.html
+    command: sudo aws s3 cp /tmp/xxx-dash/demo-int.html s3://env-status.xxx.io/demo-int.html
 
   - name: Copy over Perf HTML files to S3 bucket
-    command: sudo aws s3 cp /tmp/cwds-dash/perf.html s3://env-status.cwds.io/perf.html
+    command: sudo aws s3 cp /tmp/xxx-dash/perf.html s3://env-status.xxx.io/perf.html
 
   - name: Copy over Preview HTML files to S3 bucket
-    command: sudo aws s3 cp /tmp/cwds-dash/preview.html s3://env-status.cwds.io/preview.html
+    command: sudo aws s3 cp /tmp/xxx-dash/preview.html s3://env-status.xxx.io/preview.html
 
 #  - name: Copy over Prod HTML files to S3 bucket
-#    command: sudo aws s3 cp /tmp/cwds-dash/prod.html s3://env-status.cwds.io/prod.html
+#    command: sudo aws s3 cp /tmp/xxx-dash/prod.html s3://env-status.xxx.io/prod.html

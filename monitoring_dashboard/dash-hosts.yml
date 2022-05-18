@@ -1,85 +1,85 @@
 [preint]
-app-a.preint.cwds.io
-app-c.preint.cwds.io
-api-a.preint.cwds.io
-api-c.preint.cwds.io
-perry-a.preint.cwds.io
-#perry-c.preint.cwds.io
+app-a.preint.xxx.io
+app-c.preint.xxx.io
+api-a.preint.xxx.io
+api-c.preint.xxx.io
+perry-a.preint.xxx.io
+#perry-c.preint.xxx.io
 
 [integration]
-app-a.integration.cwds.io
-app-c.integration.cwds.io
-api-a.integration.cwds.io
-api-c.integration.cwds.io
-perry-a.integration.cwds.io
-#perry-c.integration.cwds.io
+app-a.integration.xxx.io
+app-c.integration.xxx.io
+api-a.integration.xxx.io
+api-c.integration.xxx.io
+perry-a.integration.xxx.io
+#perry-c.integration.xxx.io
 
 [integration02]
-app-a.integration02.cwds.io
-app-c.integration02.cwds.io
-api-a.integration02.cwds.io
-api-c.integration02.cwds.io
-perry-a.integration02.cwds.io
-#perry-c.integration02.cwds.io
+app-a.integration02.xxx.io
+app-c.integration02.xxx.io
+api-a.integration02.xxx.io
+api-c.integration02.xxx.io
+perry-a.integration02.xxx.io
+#perry-c.integration02.xxx.io
 
 [demo-int]
-app-a.demo-int.cwds.io
-app-c.demo-int.cwds.io
-api-a.demo-int.cwds.io
-api-c.demo-int.cwds.io
-perry-a.demo-int.cwds.io
-#perry-c.demo-int.cwds.io
-#db2.demo-int.cwds.io
-#postgres.demo-int.cwds.io
+app-a.demo-int.xxx.io
+app-c.demo-int.xxx.io
+api-a.demo-int.xxx.io
+api-c.demo-int.xxx.io
+perry-a.demo-int.xxx.io
+#perry-c.demo-int.xxx.io
+#db2.demo-int.xxx.io
+#postgres.demo-int.xxx.io
 
 [perf]
-app-a.perf.cwds.io
-app-c.perf.cwds.io
-api-a.perf.cwds.io
-api-c.perf.cwds.io
-perry-a.perf.cwds.io
-#perry-c.perf.cwds.io
-#db2.perf.cwds.io
-#postgres.perf.cwds.io
+app-a.perf.xxx.io
+app-c.perf.xxx.io
+api-a.perf.xxx.io
+api-c.perf.xxx.io
+perry-a.perf.xxx.io
+#perry-c.perf.xxx.io
+#db2.perf.xxx.io
+#postgres.perf.xxx.io
 
 [preview]
-app-a.preview.cwds.io
-app-c.preview.cwds.io
-api-a.preview.cwds.io
-api-c.preview.cwds.io
-perry-a.preview.cwds.io
-#perry-c.preview.cwds.io
+app-a.preview.xxx.io
+app-c.preview.xxx.io
+api-a.preview.xxx.io
+api-c.preview.xxx.io
+perry-a.preview.xxx.io
+#perry-c.preview.xxx.io
 
 [prod]
-intake-a.prod.cwds.io
-intake-c.prod.cwds.io
-api-a.prod.cwds.io
-api-c.prod.cwds.io
-perry-a.prod.cwds.io
-#perry-c.prod.cwds.io
+intake-a.prod.xxx.io
+intake-c.prod.xxx.io
+api-a.prod.xxx.io
+api-c.prod.xxx.io
+perry-a.prod.xxx.io
+#perry-c.prod.xxx.io
 
 [cocina]
-#app-a.cocina.cwds.io
-#app-c.cocina.cwds.io
-#api-a.cocina.cwds.io
-#api-c.cocina.cwds.io
-#perry-a.cocina.cwds.io
-#perry-c.cocina.cwds.io
+#app-a.cocina.xxx.io
+#app-c.cocina.xxx.io
+#api-a.cocina.xxx.io
+#api-c.cocina.xxx.io
+#perry-a.cocina.xxx.io
+#perry-c.cocina.xxx.io
 
 [slaves]
-jenkins-slave.preint.cwds.io
-jenkins-slave.integration.cwds.io
-jenkins-slave.integration02.cwds.io
-jenkins-slave.demo-int.cwds.io
-jenkins-slave.perf.cwds.io
-jenkins-slave.preview.cwds.io
-jenkins.prod.cwds.io
+jenkins-slave.preint.xxx.io
+jenkins-slave.integration.xxx.io
+jenkins-slave.integration02.xxx.io
+jenkins-slave.demo-int.xxx.io
+jenkins-slave.perf.xxx.io
+jenkins-slave.preview.xxx.io
+jenkins.prod.xxx.io
 
 [master]
-jenkins.mgmt.cwds.io preint_slave=jenkins-slave.preint.cwds.io
-jenkins.mgmt.cwds.io int_slave=jenkins-slave.integration.cwds.io
-jenkins.mgmt.cwds.io int02_slave=jenkins-slave.integration02.cwds.io
-jenkins.mgmt.cwds.io demo-int_slave=jenkins-slave.demo-int.cwds.io
-jenkins.mgmt.cwds.io perf_slave=jenkins-slave.perf.cwds.io
-jenkins.mgmt.cwds.io preview_slave=jenkins-slave.preview.cwds.io
-jenkins.mgmt.cwds.io prod_slave=jenkins.prod.cwds.io
+jenkins.mgmt.xxx.io preint_slave=jenkins-slave.preint.xxx.io
+jenkins.mgmt.xxx.io int_slave=jenkins-slave.integration.xxx.io
+jenkins.mgmt.xxx.io int02_slave=jenkins-slave.integration02.xxx.io
+jenkins.mgmt.xxx.io demo-int_slave=jenkins-slave.demo-int.xxx.io
+jenkins.mgmt.xxx.io perf_slave=jenkins-slave.perf.xxx.io
+jenkins.mgmt.xxx.io preview_slave=jenkins-slave.preview.xxx.io
+jenkins.mgmt.xxx.io prod_slave=jenkins.prod.xxx.io
