@@ -1,0 +1,523 @@
+---
+####### ----------------------------- Utility tasks for creating relevant files --------------------- 
+
+####### --- Preint utility files --- #######
+
+- hosts: jenkins-slave.preint.xxx.io
+  become: yes
+  tasks:
+  - name: create xxx-dash directory if it dosen't exist
+    file:
+      path: /tmp/xxx-dash
+      state: directory
+      mode: 0755
+
+  - name: remove temp text file
+    file: 
+      path: /tmp/xxx-dash/preint.txt
+      state: absent
+
+  - name: Create temp text file
+    file:
+      path: /tmp/xxx-dash/preint.txt
+      state: touch
+
+####### --- Integration utility files --- #######
+
+- hosts: jenkins-slave.integration.xxx.io
+  become: yes
+  tasks:
+  - name: create xxx-dash directory if it dosen't exist
+    file:
+      path: /tmp/xxx-dash
+      state: directory
+      mode: 0755
+
+  - name: remove temp text file
+    file:
+      path: /tmp/xxx-dash/int.txt
+      state: absent
+
+  - name: Create temp text file
+    file:
+      path: /tmp/xxx-dash/int.txt
+      state: touch
+
+####### --- Integration02 utility files --- ########
+
+- hosts: jenkins-slave.integration02.xxx.io
+  become: yes
+  tasks:
+  - name: create xxx-dash directory if it dosen't exist
+    file:
+      path: /tmp/xxx-dash
+      state: directory
+      mode: 0755
+
+  - name: remove temp text file
+    file:
+      path: /tmp/xxx-dash/int02.txt
+      state: absent
+
+  - name: Create temp text file
+    file:
+      path: /tmp/xxx-dash/int02.txt
+      state: touch
+
+####### --- Preview utility files --- #######
+      
+- hosts: jenkins-slave.preview.xxx.io
+  become: yes
+  tasks:
+  - name: create xxx-dash directory if it dosen't exist
+    file:
+      path: /tmp/xxx-dash
+      state: directory
+      mode: 0755
+
+  - name: remove temp text file
+    file:
+      path: /tmp/xxx-dash/preview.txt
+      state: absent
+
+  - name: Create temp text file
+    file:
+      path: /tmp/xxx-dash/preview.txt
+      state: touch
+
+####### --- Prod utility files --- #########
+
+#- hosts: jenkins.prod.xxx.io
+#  become: yes
+#  tasks:
+#  - name: create xxx-dash directory if it dosen't exist
+#    file:
+#      path: /tmp/xxx-dash
+#      state: directory
+#      mode: 0755
+
+#  - name: remove temp text file
+#    file:
+#      path: /tmp/xxx-dash/prod.txt
+#      state: absent
+
+#  - name: Create temp text file
+#    file:
+#      path: /tmp/xxx-dash/prod.txt
+#      state: touch
+
+####### --- Demo-Int utility files --- #######
+
+- hosts: jenkins-slave.demo-int.xxx.io
+  become: yes
+  tasks:
+  - name: create xxx-dash directory if it dosen't exist
+    file:
+      path: /tmp/xxx-dash
+      state: directory
+      mode: 0755
+
+  - name: remove temp text file
+    file:
+      path: /tmp/xxx-dash/demo-int.txt
+      state: absent
+
+  - name: Create temp text file
+    file:
+      path: /tmp/xxx-dash/demo-int.txt
+      state: touch
+
+####### --- Perf utility files --- #######
+
+- hosts: jenkins-slave.perf.xxx.io
+  become: yes
+  tasks:
+  - name: create xxx-dash directory if it dosen't exist
+    file:
+      path: /tmp/xxx-dash
+      state: directory
+      mode: 0755
+
+  - name: remove temp text file
+    file:
+      path: /tmp/xxx-dash/perf.txt
+      state: absent
+
+  - name: Create temp text file
+    file:
+      path: /tmp/xxx-dash/perf.txt
+      state: touch
+
+
+####### ----------------------------- Tasks for generating PREINT dashboard --------------------- 
+  
+- hosts: preint
+  gather_facts: no
+  serial: 1
+  become: yes
+  tasks:
+  - name: return status of docker containers
+    shell: sudo docker ps -a --format='{{ "{{" }}.Names{{ "}}" }},{{ "{{" }}.Status{{ "}}" }},{{ "{{" }}.Image{{ "}}" }}'
+    register: docinfo
+  - debug: var=docinfo
+
+  - name: save result
+    lineinfile:
+      dest: /tmp/xxx-dash/preint.txt
+      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
+      insertafter: BOF
+    delegate_to: jenkins-slave.preint.xxx.io
+  
+####### ----------------------------- Tasks for generating INTEGRATION dashboard --------------------- 
+
+- hosts: integration
+  gather_facts: no
+  serial: 1
+  become: yes
+  tasks:
+  - name: return status of docker containers
+    shell: sudo docker ps -a --format='{{ "{{" }}.Names{{ "}}" }},{{ "{{" }}.Status{{ "}}" }},{{ "{{" }}.Image{{ "}}" }}'
+    register: docinfo
+  - debug: var=docinfo
+
+  - name: save result
+    lineinfile:
+      dest: /tmp/xxx-dash/int.txt
+      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
+      insertafter: BOF
+    delegate_to: jenkins-slave.integration.xxx.io
+
+####### ----------------------------- Tasks for generating INTEGRATION02 dashboard --------------------- 
+
+- hosts: integration02
+  gather_facts: no
+  serial: 1
+  become: yes
+  tasks:
+  - name: return status of docker containers
+    shell: sudo docker ps -a --format='{{ "{{" }}.Names{{ "}}" }},{{ "{{" }}.Status{{ "}}" }},{{ "{{" }}.Image{{ "}}" }}'
+    register: docinfo
+  - debug: var=docinfo
+
+  - name: save result
+    lineinfile:
+      dest: /tmp/xxx-dash/int02.txt
+      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
+      insertafter: BOF
+    delegate_to: jenkins-slave.integration02.xxx.io
+
+####### ----------------------------- Tasks for generating Demo-Int dashboard --------------------
+
+- hosts: demo-int
+  gather_facts: no
+  serial: 1
+  become: yes
+  tasks:
+  - name: return status of docker containers
+    shell: sudo docker ps -a --format='{{ "{{" }}.Names{{ "}}" }},{{ "{{" }}.Status{{ "}}" }},{{ "{{" }}.Image{{ "}}" }}'
+    register: docinfo
+  - debug: var=docinfo
+
+  - name: save result
+    lineinfile:
+      dest: /tmp/xxx-dash/demo-int.txt
+      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
+      insertafter: BOF
+    delegate_to: jenkins-slave.demo-int.xxx.io
+
+
+####### ----------------------------- Tasks for generating PERF dashboard ------------------------
+
+- hosts: perf
+  gather_facts: no
+  serial: 1
+  become: yes
+  tasks:
+  - name: return status of docker containers
+    shell: sudo docker ps -a --format='{{ "{{" }}.Names{{ "}}" }},{{ "{{" }}.Status{{ "}}" }},{{ "{{" }}.Image{{ "}}" }}'
+    register: docinfo
+  - debug: var=docinfo
+
+  - name: save result
+    lineinfile:
+      dest: /tmp/xxx-dash/perf.txt
+      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
+      insertafter: BOF
+    delegate_to: jenkins-slave.perf.xxx.io
+
+####### ----------------------------- Tasks for generating PREVIEW dashboard --------------------- 
+
+- hosts: preview
+  gather_facts: no
+  serial: 1
+  become: yes
+  tasks:
+  - name: return status of docker containers
+    shell: sudo docker ps -a --format='{{ "{{" }}.Names{{ "}}" }},{{ "{{" }}.Status{{ "}}" }},{{ "{{" }}.Image{{ "}}" }}'
+    register: docinfo
+  - debug: var=docinfo
+
+  - name: save result
+    lineinfile:
+      dest: /tmp/xxx-dash/preview.txt
+      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
+      insertafter: BOF
+    delegate_to: jenkins-slave.preview.xxx.io
+
+####### ----------------------------- Tasks for generating PROD dashboard --------------------- 
+
+#- hosts: prod
+#  gather_facts: no
+#  serial: 1
+#  become: yes
+#  tasks:
+#  - name: return status of docker containers
+#    shell: sudo docker ps -a --format='{{ "{{" }}.Names{{ "}}" }},{{ "{{" }}.Status{{ "}}" }},{{ "{{" }}.Image{{ "}}" }}'
+#    register: docinfo
+#  - debug: var=docinfo
+
+#  - name: save result
+#    lineinfile:
+#      dest: /tmp/xxx-dash/prod.txt
+#      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
+#      insertafter: BOF
+#    delegate_to: jenkins.prod.xxx.io
+
+####### ----------------------------- Tasks for generating COCINA dashboard --------------------- 
+
+#- hosts: cocina
+#  gather_facts: no
+#  serial: 1
+#  become: yes
+#  tasks:
+#  - name: return status of docker containers
+#    shell: sudo docker ps -a --format='{{ "{{" }}.Names{{ "}}" }},{{ "{{" }}.Status{{ "}}" }},{{ "{{" }}.Image{{ "}}" }}'
+#    register: docinfo
+#  - debug: var=docinfo
+
+#  - name: save result
+#    lineinfile:
+#      dest: /tmp/cocina.txt
+#      line: "{{ inventory_hostname }}\n{{ docinfo.stdout }}"
+#      insertafter: BOF
+#    delegate_to: jenkins-slave.cocina.xxx.io
+
+
+##### ------------ Fetch all text files from slaves --------------- ######
+
+- hosts: slaves
+  serial: 1
+  become: yes
+  tasks:
+  - name: fetch file from source server
+    fetch:
+      src: /tmp/xxx-dash/preint.txt
+      dest: /tmp
+    delegate_to: jenkins-slave.preint.xxx.io
+
+  - name: fetch file from source server
+    fetch:
+      src: /tmp/xxx-dash/int.txt
+      dest: /tmp
+    delegate_to: jenkins-slave.integration.xxx.io
+
+  - name: fetch file from source server
+    fetch:
+      src: /tmp/xxx-dash/int02.txt
+      dest: /tmp
+    delegate_to: jenkins-slave.integration02.xxx.io
+
+  - name: fetch file from source server
+    fetch:
+      src: /tmp/xxx-dash/preview.txt
+      dest: /tmp
+    delegate_to: jenkins-slave.preview.xxx.io
+
+#  - name: fetch file from source server
+#    fetch:
+#      src: /tmp/xxx-dash/prod.txt
+#      dest: /tmp
+#    delegate_to: jenkins.prod.xxx.io
+
+  - name: fetch file from source server
+    fetch:
+      src: /tmp/xxx-dash/demo-int.txt
+      dest: /tmp
+    delegate_to: jenkins-slave.demo-int.xxx.io
+
+  - name: fetch file from source server
+    fetch:
+      src: /tmp/xxx-dash/perf.txt
+      dest: /tmp
+    delegate_to: jenkins-slave.perf.xxx.io
+
+##### ------------ Manage all processing on Jenkins Master -------- ######
+
+- hosts: master
+  become: yes
+  tasks:
+  - name: create xxx-dash directory if it dosen't exist
+    file:
+      path: /tmp/xxx-dash
+      state: directory
+      mode: 0755
+
+  - name: remove html files
+    file:
+      path: /tmp/xxx-dash/{{ item.file }}
+      state: absent
+    with_items:
+    - { file: 'preint.html' }
+    - { file: 'int.html' }
+    - { file: 'int02.html' }
+    - { file: 'preview.html' }
+    - { file: 'prod.html' }
+    - { file: 'cocina.html' }
+    - { file: 'demo-int.html' }
+    - { file: 'perf.html' }
+
+
+
+  - name: create new html files
+    file:
+      path: /tmp/xxx-dash/{{ item.file }}
+      state: touch
+    with_items:
+    - { file: 'preint.html' }
+    - { file: 'int.html' }
+    - { file: 'int02.html' }
+    - { file: 'preview.html' }
+    - { file: 'prod.html' }
+    - { file: 'cocina.html' }
+    - { file: 'demo-int.html' }
+    - { file: 'perf.html' }
+
+  - name: remove master html file
+    file:
+      path: /tmp/xxx-dash/master-dash.html
+      state: absent
+
+  - name: load master html template
+    template:
+      src: inventories/env-monitor/master-dash.html
+      dest: /tmp/xxx-dash/master-dash.html
+
+##### ---------- Remove all existing text files -------------
+
+  - name: remove temp text file
+    file:
+      path: /tmp/xxx-dash/{{ item.file }}
+      state: absent
+    with_items: 
+    - { file: 'preint.txt' }
+    - { file: 'int.txt' }
+    - { file: 'int02.txt' }
+    - { file: 'preview.txt' }
+    - { file: 'prod.txt' }
+    - { file: 'cocina.txt' }
+    - { file: 'demo-int.txt' }
+    - { file: 'perf.txt' }
+
+
+##### ---------- Copying text files to master ---------------
+
+  - name: copy the paired files to the right servers
+    copy:
+      src: /tmp/{{ preint_slave }}/tmp/xxx-dash/preint.txt
+      dest: /tmp/xxx-dash/
+
+  - name: copy the paired files to the right servers
+    copy:
+      src: /tmp/{{ int_slave }}/tmp/xxx-dash/int.txt
+      dest: /tmp/xxx-dash/
+
+  - name: copy the paired files to the right servers
+    copy:
+      src: /tmp/{{ int02_slave }}/tmp/xxx-dash/int02.txt
+      dest: /tmp/xxx-dash/
+
+  - name: copy the paired files to the right servers
+    copy:
+      src: /tmp/{{ demo-int_slave }}/tmp/xxx-dash/demo-int.txt
+      dest: /tmp/xxx-dash/
+
+  - name: copy the paired files to the right servers
+    copy:
+      src: /tmp/{{ perf_slave }}/tmp/xxx-dash/perf.txt
+      dest: /tmp/xxx-dash/
+
+  - name: copy the paired files to the right servers
+    copy:
+      src: /tmp/{{ preview_slave }}/tmp/xxx-dash/preview.txt
+      dest: /tmp/xxx-dash/
+
+#  - name: copy the paired files to the right servers
+#    copy:
+#      src: /tmp/{{ prod_slave }}/tmp/xxx-dash/prod.txt
+#      dest: /tmp/xxx-dash/
+
+##### ------------- Copy all python scripts to master --------
+
+  - name: Copy over python script
+    copy:
+      src: inventories/env-monitor/{{ item.file }}
+      dest: /tmp/xxx-dash/{{ item.file }}
+    with_items:
+    - { file: 'preint.py' }
+    - { file: 'int.py' }
+    - { file: 'int02.py' }
+    - { file: 'preview.py' }
+    - { file: 'prod.py' }
+    - { file: 'cocina.py' }
+    - { file: 'demo-int.py' }
+    - { file: 'perf.py' }
+
+
+##### --------- Parsing and Generating HTML ------------------
+
+  - name: Run script to parse file and generate html dashboard for preint
+    command: python /tmp/xxx-dash/preint.py
+
+  - name: Run script to parse file and generate html dashboard for integration
+    command: python /tmp/xxx-dash/int.py
+
+  - name: Run script to parse file and generate html dashboard for integration02
+    command: python /tmp/xxx-dash/int02.py
+
+  - name: Run script to parse file and generate html dashboard for demo-int
+    command: python /tmp/xxx-dash/demo-int.py
+
+  - name: Run script to parse file and generate html dashboard for perf
+    command: python /tmp/xxx-dash/perf.py
+
+  - name: Run script to parse file and generate html dashboard for preview
+    command: python /tmp/xxx-dash/preview.py
+
+#  - name: Run script to parse file and generate html dashboard for prod
+#    command: python /tmp/xxx-dash/prod.py
+
+##### ----------- Pushing files to S3 -------------------------
+
+  - name: Copy over Master HTML file to S3 bucket
+    command: sudo aws s3 cp /tmp/xxx-dash/master-dash.html s3://env-status.xxx.io/master-dash.html
+
+  - name: Copy over Preint HTML files to S3 bucket
+    command: sudo aws s3 cp /tmp/xxx-dash/preint.html s3://env-status.xxx.io/preint.html
+
+  - name: Copy over Integration HTML files to S3 bucket
+    command: sudo aws s3 cp /tmp/xxx-dash/int.html s3://env-status.xxx.io/int.html
+
+  - name: Copy over Integration02 HTML files to S3 bucket
+    command: sudo aws s3 cp /tmp/xxx-dash/int02.html s3://env-status.xxx.io/int02.html
+
+  - name: Copy over Demo-Int HTML files to S3 bucket
+    command: sudo aws s3 cp /tmp/xxx-dash/demo-int.html s3://env-status.xxx.io/demo-int.html
+
+  - name: Copy over Perf HTML files to S3 bucket
+    command: sudo aws s3 cp /tmp/xxx-dash/perf.html s3://env-status.xxx.io/perf.html
+
+  - name: Copy over Preview HTML files to S3 bucket
+    command: sudo aws s3 cp /tmp/xxx-dash/preview.html s3://env-status.xxx.io/preview.html
+
+#  - name: Copy over Prod HTML files to S3 bucket
+#    command: sudo aws s3 cp /tmp/xxx-dash/prod.html s3://env-status.xxx.io/prod.html

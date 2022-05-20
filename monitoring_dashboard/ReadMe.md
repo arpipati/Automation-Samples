@@ -41,14 +41,14 @@ For the Dashboard design, I came up with the following solution:
 
 ---
 
-The `cwds-dash.yml` file is the master Ansible playbook which does the heavy lifting. Here is a summary of the tasks performed by this script:
+The `master-dash.yml` file is the master Ansible playbook which does the heavy lifting. Here is a summary of the tasks performed by this script:
 - It runs the `docker ps -a` command on EC2 instances in all environmetns and saves the result in each environment's individual text file on that environment's Jenkins Slave instance. 
 - Removes any existing environment text files present on the Master and collects all the individual environment text files present on the Jenkins Slave node and pulls them on the Master Jenkins instance. 
 - Once the text files are collected on the Master Jenkins instance from all the Jenkins Slave nodes, it creates empty HTML files and copies the Python scripts to parse these text files. 
 - Runs the python scripts to parse the environmnet text files and based on the script logic, writes HTML code blocks to the empty HTML files created earlier.
 - Once the HTML files are generated, these files are pushed over to the S3 bucket, with versioning enabled. 
 
-The `cwds-dash.yml` playbook was converted to a Jenkins job which was auto-started every 5 minutes. Thus, collecting the `docker ps -a` info every 5 minutes from all environments and generating new HTML files based on the python script logic, and finally pushing these new HTML files to the static webhosting enabled S3 bucket. 
+The `master-dash.yml` playbook was converted to a Jenkins job which was auto-started every 5 minutes. Thus, collecting the `docker ps -a` info every 5 minutes from all environments and generating new HTML files based on the python script logic, and finally pushing these new HTML files to the static webhosting enabled S3 bucket. 
 
 This is how the Dashboard was created and got refreshed every 5 minutes, reporting near-real time monitoring data for the status of all Docker Containers. 
 
