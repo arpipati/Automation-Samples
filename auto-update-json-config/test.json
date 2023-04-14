@@ -1,0 +1,28 @@
+{
+    "allowlistedServicePrincipals": [
+      {
+        "servicePrincipal": "test.organizations.url.internal",
+        "allowedTargetManagementAccountIdsForDelegatedAdmin": [],
+        "delegatedAdminAccountLimit": 10,
+        "accountIdsInServicePrincipal": [],
+        "allowedTargetManagementAccountIds": [],
+        "commentsAndRelatedTickets": []
+      },
+      {
+        "servicePrincipal": "beta.organizations.url.internal",
+        "allowedTargetManagementAccountIdsForDelegatedAdmin": [],
+        "delegatedAdminAccountLimit": 10,
+        "accountIdsInServicePrincipal": [],
+        "allowedTargetManagementAccountIds": [],
+        "commentsAndRelatedTickets": []
+      },
+      {
+        "servicePrincipal": "gamma.organizations.url.internal",
+        "allowedTargetManagementAccountIdsForDelegatedAdmin": [],
+        "delegatedAdminAccountLimit": 10,
+        "accountIdsInServicePrincipal": [],
+        "allowedTargetManagementAccountIds": [],
+        "commentsAndRelatedTickets": []
+      }      
+    ]
+  }
